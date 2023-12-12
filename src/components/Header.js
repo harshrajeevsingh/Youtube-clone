@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleSidebar } from "../utils/SidebarSlice";
+import { suggest } from "../api";
 const Header = () => {
+  const [term, setTerm] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const [boxSuggestion, setBoxsuggestion] = useState(false);
+
+  useEffect(() => {
+    const debounce = setTimeout(() => {
+      suggest(term)
+        .then((suggestedTerm) => {
+          setSuggestions(suggestedTerm);
+        })
+        .catch((error) => {
+          console.error("Error fetching Suggestions");
+        });
+    }, 200);
+
+    return () => {
+      clearTimeout(debounce);
+    };
+  }, [term]);
+
+  const handleInput = (e) => {
+    setTerm(e.target.value);
+  };
   const dispatch = useDispatch();
 
   const handleToggle = () => {
@@ -9,7 +33,7 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-5 shadow-lg">
+    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-50">
       <div className="flex col-span-1 gap-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,28 +59,48 @@ const Header = () => {
         />
       </div>
       <div className="col-span-10 place-self-center">
-        <input
-          className="w-72 border border-gray-400 rounded-l-full p-2"
-          type="text"
-          placeholder="Search"
-        />
-        <button className="bg-gray-100 border border-gray-400 rounded-r-full pr-5 pl-3 pt-1 pb-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="pt-1"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.3-4.3" />
-          </svg>
-        </button>
+        <div>
+          <input
+            className="w-96 border border-gray-400 rounded-l-full p-2 font-medium"
+            type="text"
+            value={term}
+            placeholder="Search"
+            onChange={handleInput}
+            onFocus={() => setBoxsuggestion(true)}
+            onBlur={() => setBoxsuggestion(false)}
+          />
+          <button className="bg-gray-100 border border-gray-400 rounded-r-full pr-5 pl-3 pt-1 pb-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="pt-1"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+          </button>
+        </div>
+        {boxSuggestion && (
+          <div className="bg-white w-96 fixed border border-gray-100 rounded-lg shadow-lg">
+            <ul className="cursor-pointer">
+              {suggestions.map((suggestion, index) => (
+                <li
+                  key={index}
+                  className="py-2 px-3 font-medium hover:bg-gray-100"
+                >
+                  {suggestion}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className="col-span-1">
         <svg

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getVideos } from "../api";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import ShimmerCard from "./ShimmerCard";
 
 const VideoContainer = () => {
   const [videoData, setVideodata] = useState(null);
@@ -20,8 +21,14 @@ const VideoContainer = () => {
       });
   }, []);
 
+  const shimmerCardsArray = Array.from({ length: 15 });
+
   return loading ? (
-    "Loading.."
+    <div className="flex flex-wrap">
+      {shimmerCardsArray.map((_, index) => (
+        <ShimmerCard key={index} />
+      ))}
+    </div>
   ) : (
     <div className="flex flex-wrap">
       {videoData && videoData.length > 0

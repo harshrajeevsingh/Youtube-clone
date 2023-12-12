@@ -5,7 +5,8 @@ const Sidebar = () => {
   const toggleBar = useSelector((store) => store.sidebar.isVisible);
   if (!toggleBar) return null;
   return (
-    <div className="w-2/12 shadow-lg pl-7 pr-5 py-5">
+    <div className="w-2/12 shadow-lg pl-7 pr-5 py-5 ">
+      {/* <div className="fixed left-0 h-full w-2/12 bg-white shadow-lg"> */}
       <ul className="border-b-4 mb-2 cursor-pointer">
         <li className="flex py-2 gap-3 hover:bg-slate-100  rounded-lg">
           <svg
