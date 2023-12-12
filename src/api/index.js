@@ -1,6 +1,5 @@
 export const getVideos = async () => {
   const key = process.env.REACT_APP_API_KEY;
-  console.log("API Key:", key);
   try {
     const response = await fetch(
       `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${key}`
@@ -48,7 +47,6 @@ export const suggest = async (term) => {
 
     const jsonData = JSON.parse(jsonString[1]);
 
-    // Assuming the response structure is consistent
     return jsonData[1].map((item) => item[0]);
   } catch (error) {
     console.error("Error fetching suggestions:", error.message);

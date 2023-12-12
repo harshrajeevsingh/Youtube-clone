@@ -1,32 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../utils/SidebarSlice";
 import { suggest } from "../api";
+import { cacheResults } from "../utils/SearchSlice";
+
 const Header = () => {
   const [term, setTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [boxSuggestion, setBoxsuggestion] = useState(false);
 
+  const cachedResults = useSelector((store) => store.search.cachedResults);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    const debounce = setTimeout(() => {
-      suggest(term)
-        .then((suggestedTerm) => {
-          setSuggestions(suggestedTerm);
-        })
-        .catch((error) => {
-          console.error("Error fetching Suggestions");
-        });
+    const performSearch = setTimeout(async () => {
+      if (cachedResults[term]) {
+        setSuggestions(cachedResults[term]);
+      } else {
+        try {
+          const results = await suggest(term);
+          dispatch(cacheResults({ term, results }));
+
+          setSuggestions(results);
+        } catch (error) {
+          console.error("error fetching suggestions:", error.message);
+        }
+      }
     }, 200);
 
     return () => {
-      clearTimeout(debounce);
+      clearTimeout(performSearch);
     };
-  }, [term]);
+  }, [term, cachedResults, dispatch]);
 
   const handleInput = (e) => {
     setTerm(e.target.value);
   };
-  const dispatch = useDispatch();
 
   const handleToggle = () => {
     dispatch(toggleSidebar());
