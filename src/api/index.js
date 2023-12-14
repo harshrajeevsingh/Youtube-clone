@@ -46,7 +46,7 @@ export const suggest = async (term) => {
     }
 
     const jsonData = JSON.parse(jsonString[1]);
-
+    console.log(jsonData[1].map((item) => item[0]));
     return jsonData[1].map((item) => item[0]);
   } catch (error) {
     console.error("Error fetching suggestions:", error.message);
