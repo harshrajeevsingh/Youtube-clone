@@ -7,7 +7,6 @@ import ShimmerCard from "./ShimmerCard";
 const VideoContainer = () => {
   const [videoData, setVideodata] = useState(null);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     getVideos()
       .then((json) => {
