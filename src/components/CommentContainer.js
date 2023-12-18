@@ -82,7 +82,7 @@ const CommentsList = ({ comments }) => {
 
 const CommentContainer = () => {
   return (
-    <div className="mt-5">
+    <div className="mt-5 max-w-[930px]">
       <CommentsList comments={commentsData} />
     </div>
   );

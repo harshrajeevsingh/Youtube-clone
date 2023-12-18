@@ -21,13 +21,13 @@ const Header = () => {
         try {
           const results = await suggest(term);
           dispatch(cacheResults({ term, results }));
-
+          console.log(cachedResults);
           setSuggestions(results);
         } catch (error) {
           console.error("error fetching suggestions:", error.message);
         }
       }
-    }, 200);
+    }, 300);
 
     return () => {
       clearTimeout(performSearch);
