@@ -1,8 +1,8 @@
-export const getVideos = async () => {
+export const getVideos = async (location) => {
   const key = process.env.REACT_APP_API_KEY;
   try {
     const response = await fetch(
-      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=US&key=${key}`
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&maxResults=50&regionCode=${location}&key=${key}`
     );
 
     if (!response.ok) {

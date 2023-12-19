@@ -43,7 +43,7 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-50">
+    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-50 items-center">
       <div className="flex col-span-1 gap-5">
         <svg
           xmlns="http://www.w3.org/2000/svg"

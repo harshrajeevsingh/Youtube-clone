@@ -11,6 +11,11 @@ const ButtonList = () => {
     "Politics",
     "News",
     "Game",
+    "Thoughts",
+    "Podcast",
+    "Action",
+    "Toys",
+    "New stuff",
   ];
   return (
     <div>
