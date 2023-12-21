@@ -8,6 +8,15 @@ import { Provider } from "react-redux";
 import store from "./utils/Store";
 import Settings from "./components/Settings";
 
+if (
+  localStorage.theme === "dark" ||
+  (!("theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
+}
 function App() {
   const appRouter = createBrowserRouter([
     {

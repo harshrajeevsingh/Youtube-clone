@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getVideos } from "../api";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
-import ShimmerCard from "./ShimmerCard";
+import { ShimmerCard } from "./ShimmerCard";
 import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
@@ -34,7 +34,7 @@ const VideoContainer = () => {
       ))}
     </div>
   ) : (
-    <div className="flex flex-wrap gap-5 mt-3">
+    <div className="flex flex-wrap gap-5 mt-3 min-h-screen">
       {videoData && videoData.length > 0
         ? videoData.map((item) => (
             <Link to={"/watch?v=" + item.id} key={item.id}>
