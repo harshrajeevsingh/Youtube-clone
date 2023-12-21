@@ -6,10 +6,10 @@ const Sidebar = () => {
   const toggleBar = useSelector((store) => store.sidebar.isVisible);
   if (!toggleBar) return null;
   return (
-    <div className="w-2/12 shadow-lg pl-7 pr-5 pt-9 ">
-      <ul className="border-b-4 mb-2 cursor-pointer">
+    <div className="w-52 h-full shadow-lg pl-5 pr-5 pt-9 bg-white dark:bg-zinc-900 fixed left-0 ">
+      <ul className="border-b-2  pb-2 cursor-pointer grid place-content-center">
         <Link to={"/"}>
-          <li className="flex py-2 gap-3 hover:bg-slate-100  rounded-lg">
+          <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600  dark:text-white  rounded-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -28,7 +28,7 @@ const Sidebar = () => {
             Home
           </li>
         </Link>
-        <li className="flex py-2 gap-3 hover:bg-slate-100  rounded-lg">
+        <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600 dark:text-white rounded-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -46,7 +46,7 @@ const Sidebar = () => {
           </svg>
           Shorts
         </li>
-        <li className="flex py-2 gap-3 hover:bg-slate-100  rounded-lg">
+        <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600 dark:text-white rounded-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -65,8 +65,8 @@ const Sidebar = () => {
           Subscription
         </li>
       </ul>
-      <ul className="border-b-4 cursor-pointer">
-        <li className="flex py-2 gap-3">
+      <ul className="border-b-2 pb-2 cursor-pointer grid place-content-center">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -84,7 +84,7 @@ const Sidebar = () => {
           </svg>
           Trending
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -103,7 +103,7 @@ const Sidebar = () => {
           </svg>
           Shopping
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -122,7 +122,7 @@ const Sidebar = () => {
           </svg>
           Music
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -142,7 +142,7 @@ const Sidebar = () => {
           </svg>
           Movies
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -163,7 +163,7 @@ const Sidebar = () => {
           </svg>
           Gaming
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -184,7 +184,7 @@ const Sidebar = () => {
           </svg>
           Live
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -204,7 +204,7 @@ const Sidebar = () => {
           </svg>
           News
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -224,7 +224,7 @@ const Sidebar = () => {
           </svg>
           Sports
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -250,7 +250,7 @@ const Sidebar = () => {
           </svg>
           Learning
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -267,7 +267,7 @@ const Sidebar = () => {
           </svg>
           Fashion
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="dark:text-white flex py-2 gap-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -288,9 +288,9 @@ const Sidebar = () => {
           Podcast
         </li>
       </ul>
-      <ul className="border-b-4 mb-2 cursor-pointer">
+      <ul className="mb-2 pb-2 cursor-pointer grid place-content-center">
         <Link to={"settings"}>
-          <li className="flex py-2 gap-3">
+          <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600 dark:text-white rounded-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -309,7 +309,7 @@ const Sidebar = () => {
             Setting
           </li>
         </Link>
-        <li className="flex py-2 gap-3">
+        <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600 dark:text-white rounded-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -328,7 +328,7 @@ const Sidebar = () => {
           </svg>
           Help
         </li>
-        <li className="flex py-2 gap-3">
+        <li className="flex py-2 gap-3 hover:bg-slate-100 hover:dark:bg-zinc-600 dark:text-white rounded-lg">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

@@ -43,8 +43,8 @@ const Header = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white z-50 items-center">
-      <div className="flex col-span-1 gap-5">
+    <div className="grid grid-flow-col p-5 shadow-lg fixed top-0 left-0 right-0 bg-white dark:bg-zinc-900 z-50 items-center">
+      <div className="flex col-span-1 gap-5 dark:text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -63,15 +63,15 @@ const Header = () => {
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/768px-YouTube_Logo_2017.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/3d-youtube-logo-7130.svg/2048px-3d-youtube-logo-7130.svg.png"
           alt="youtube-logo"
-          className="h-6"
-        />
+          className="h-8"
+        />{" "}
       </div>
       <div className="col-span-10 place-self-center">
-        <div>
+        <div className="flex">
           <input
-            className="w-96 border border-gray-400 rounded-l-full p-2 font-medium"
+            className="w-96 ps-5 border border-gray-400 rounded-full p-2 font-medium dark:bg-zinc-700 dark:text-slate-200 dark:border-none"
             type="text"
             value={term}
             placeholder="Search"
@@ -79,11 +79,12 @@ const Header = () => {
             onFocus={() => setBoxsuggestion(true)}
             onBlur={() => setBoxsuggestion(false)}
           />
-          <button className="bg-gray-100 border border-gray-400 rounded-r-full pr-5 pl-3 pt-1 pb-3">
+          {/* <button className="bg-gray-100 border border-gray-400 dark:bg-zinc-700 dark:text-slate-200 dark:border-none rounded-r-full pr-5 pl-3 pt-1 pb-3"> */}
+          <button className="dark:text-white pl-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
-              height="22"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -112,7 +113,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="col-span-1">
+      <div className="col-span-1 dark:text-white">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

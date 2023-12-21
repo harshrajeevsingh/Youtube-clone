@@ -31,11 +31,6 @@ const VideoCard = ({ info }) => {
       }`}
     >
       {imageSrc && (
-        // <img
-        //   src={imageSrc}
-        //   className="rounded-xl w-[400px] h-[225px]"
-        //   alt="thumbnail"
-        // />
         <img
           src={imageSrc}
           className={`rounded-xl ${toggleBar ? "w-[400px] " : ""}`}
@@ -43,9 +38,13 @@ const VideoCard = ({ info }) => {
         />
       )}
       <ul>
-        <li className="font-bold truncate">{title}</li>
-        <li className="font-medium text-gray-700">{channelTitle}</li>
-        <li>{formatViewsCount(statistics.viewCount)} views</li>
+        <li className="font-bold truncate dark:text-white">{title}</li>
+        <li className="font-normal  text-gray-700 dark:text-gray-300">
+          {channelTitle}
+        </li>
+        <li className="dark:text-slate-300">
+          {formatViewsCount(statistics.viewCount)} views
+        </li>
       </ul>
     </div>
   );

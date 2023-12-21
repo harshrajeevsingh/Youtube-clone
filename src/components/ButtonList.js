@@ -20,7 +20,10 @@ const ButtonList = () => {
   return (
     <div>
       {btnData.map((btn, index) => (
-        <button key={index} className="bg-gray-200 rounded-lg px-3 py-1 m-2">
+        <button
+          key={index}
+          className="bg-gray-200 dark:bg-zinc-700 dark:text-white font-normal rounded-lg px-3 py-1 m-2"
+        >
           {btn}
         </button>
       ))}

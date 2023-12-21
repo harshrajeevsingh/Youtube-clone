@@ -249,6 +249,17 @@ var commentList = [
   "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
 ];
 
+var imgList = [
+  "https://www.storypick.com/wp-content/uploads/2022/12/16.jpeg",
+  "https://framerusercontent.com/images/gMHfU4xaMiq7jHpCpTNtqnK6ulQ.jpg",
+  "https://miro.medium.com/v2/resize:fit:1020/1*jZ9v-2QShwnfCwHlEZCmDw.png",
+  "https://images.media.io/images2023/ai-portrait-generator/portrait-pic3.png",
+  "https://thumbs.dreamstime.com/b/generative-ai-young-smiling-man-avatar-man-brown-beard-mustache-hair-wearing-yellow-sweater-sweatshirt-d-vector-people-279560903.jpg",
+  "https://m.timesofindia.com/photo/96686750/96686750.jpg",
+  "https://pfpmaker.com/_nuxt/img/result-pic-1.88c3881.png",
+  "https://img.freepik.com/premium-photo/illustration-cute-girl-avatar-graphic-white-background-created-with-generative-ai-technology_67092-4955.jpg",
+  "https://pfpmaker.com/_nuxt/img/result-pic-5.bfaf2f9.png",
+];
 export const countryList = [
   { regionCode: "AE", countryName: "United Arab Emirates" },
   { regionCode: "BH", countryName: "Bahrain" },
@@ -363,6 +374,9 @@ export const countryList = [
 
 export function generateName() {
   return nameList[Math.floor(Math.random() * nameList.length)];
+}
+export function generateImage() {
+  return imgList[Math.floor(Math.random() * imgList.length)];
 }
 export function generateComment() {
   return commentList[Math.floor(Math.random() * commentList.length)];
